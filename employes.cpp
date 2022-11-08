@@ -129,5 +129,8 @@ bool Employes ::chercher(QTableView *table,int CIN )
 
      }
 
+
+
+
 //tri : ask:ordre croissant /desc:ordre decroissant
 //methode 2 selectionner l tableview et cocher sorting enabled

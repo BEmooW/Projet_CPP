@@ -5,7 +5,7 @@
 #-------------------------------------------------
 QT+=sql
 CONFIG+=console
-QT       += core gui sql printsupport
+QT       += core gui sql printsupport  network multimedia multimediawidgets charts widgets axcontainer
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,12 +27,14 @@ CONFIG += c++11
 
 SOURCES += \
     employes.cpp \
+    mailing.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp
 
 HEADERS += \
     employes.h \
+    mailing.h \
         mainwindow.h \
     connection.h
 

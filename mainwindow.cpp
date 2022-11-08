@@ -12,6 +12,7 @@
 #include<QtPrintSupport/QPrinter>
 #include<QtPrintSupport/QPrintDialog>
 #include<QGraphicsDropShadowEffect>
+#include"mailing.h"
 using namespace std;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -21,7 +22,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableView->setModel(Emp.afficher());
     ui->tableView_3->setModel(Emp.afficher());
 
-
+    //pour le mailing
+    connect(ui->pb_envoyer, SIGNAL(clicked()),this, SLOT(sendMail()));
+    connect(ui->pb_browse, SIGNAL(clicked()), this, SLOT(browse()));
 
 
     //logo app
@@ -43,6 +46,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->label_bg_modif->setPixmap(pixbg.scaled(w3,h3,Qt::KeepAspectRatio));
     ui->label_bg_aj->setPixmap(pixbg.scaled(w3,h3,Qt::KeepAspectRatio));
     ui->label_bg_aff->setPixmap(pixbg.scaled(w3,h3,Qt::KeepAspectRatio));
+    ui->label_bg_mail->setPixmap(pixbg.scaled(w3,h3,Qt::KeepAspectRatio));
     //connect
     QObject::connect(ui->pb_ajouter,&QPushButton::clicked,this,&MainWindow::on_pb_ajouter_clicked);
     QObject::connect(ui->pb_afficher,&QPushButton::clicked,this,&MainWindow::on_pb_afficher_clicked);
@@ -278,6 +282,7 @@ void MainWindow::on_le_CINa_textChanged(const QString &arg1)
         QSqlQuery*qry=new QSqlQuery();
         QString CIN=ui->le_CINa->text();
 
+
         if(CIN.isEmpty())
         {
             ui->tableView_3->setModel(Emp.afficher());
@@ -285,10 +290,15 @@ void MainWindow::on_le_CINa_textChanged(const QString &arg1)
         }
         else
         {
-            qry->prepare("select * from employes where CIN='"+CIN+"'"); //like
+            //
+            qry->prepare ("SELECT * from employes where ( CIN LIKE'%"+CIN+"%' OR nom LIKE'%"+CIN+"%' OR prenom LIKE'%"+CIN+"%'OR matricule LIKE'%"+CIN+"%') ");
             qry->exec();
             modal->setQuery(*qry);
             ui->tableView_3->setModel(modal);
+            //qry->prepare("select * from employes where CIN='"+CIN+"'"); //like
+            //qry->exec();
+            //modal->setQuery(*qry);
+            //ui->tableView_3->setModel(modal);
         }
 }
 
@@ -414,16 +424,18 @@ void MainWindow::on_pb_imprimer_clicked()
     const int rowCount = ui->tableView->model()->rowCount();
     const int columnCount = ui->tableView->model()->columnCount();
 
+
+
     out <<  "<html>\n"
-        "<head>\n"
+        "<head >\n"
         "<meta Content=\"Text/html; charset=Windows-1251\">\n"
         <<  QString("<title>%1</title>\n").arg("col1")
         <<  "</head>\n"
         "<body bgcolor=#ffffff link=#5000A0>\n"
-        "<table border=1 cellspacing=0 cellpadding=2>\n";
+        "<table border=1 cellspacing=0 cellpadding=1>\n";
 
-    // headers
-    out << "<thead><tr bgcolor=#f0f0f0>";
+    // headers color
+    out << "<thead><tr bgcolor=#9F8EC3>";
     for (int column = 0; column < columnCount; column++)
         if (!ui->tableView->isColumnHidden(column))
             out << QString("<th>%1</th>").arg(ui->tableView->model()->headerData(column, Qt::Horizontal).toString());
@@ -435,6 +447,7 @@ void MainWindow::on_pb_imprimer_clicked()
         for (int column = 0; column < columnCount; column++) {
             if (!ui->tableView->isColumnHidden(column)) {
                 QString data = ui->tableView->model()->data(ui->tableView->model()->index(row, column)).toString().simplified();
+                //table values color
                 out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
             }
         }
@@ -456,3 +469,4 @@ void MainWindow::on_pb_imprimer_clicked()
 
     delete document;
 }
+

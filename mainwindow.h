@@ -61,6 +61,10 @@ private slots:
 
     void on_pb_imprimer_clicked();
 
+    void on_pb_envoyer_clicked();
+
+    void on_pb_browse_clicked();
+
 private:
     Ui::MainWindow *ui;
     Employes Emp;
