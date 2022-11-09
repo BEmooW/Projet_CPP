@@ -1,0 +1,240 @@
+
+ Vous avez ajoutee : 
+cin :12121212
+num_tel :12312312
+nom :ched
+prenom :de
+adresse mail :azeazeazea@vhjvj.com
+-------------
+
+ Vous avez modifiee : 
+cin :
+num_tel :
+nom :
+prenom :
+adresse mail :
+-------------
+
+ Vous avez ajoutee : 
+cin :14607112
+num_tel :50442779
+nom :chedly
+prenom :hazgui
+adresse mail :azeazeazea@vhjvj.com
+-------------
+
+ Vous avez ajoutee : 
+cin :14607133
+num_tel :50442779
+nom :aedly
+prenom :hazgui
+adresse mail :azeazeazea@vhjvj.com
+-------------
+
+ Vous avez ajoutee : 
+cin :14607123
+num_tel :50442779
+nom :rredly
+prenom :hazgui
+adresse mail :azeazeazea@vhjvj.com
+-------------
+
+ Vous avez modifiee : 
+cin :23233233
+num_tel :50442779
+nom :chedly
+prenom :hazgui
+adresse mail :chedlihazgui@outlook.com
+-------------
+
+ Vous avez modifiee : 
+cin :23233233
+num_tel :50442779
+nom :chedly
+prenom :hazgui
+adresse mail :chedlihazgui@outlook.com
+-------------
+
+ Vous avez modifiee : 
+cin :23233233
+num_tel :50442779
+nom :chedly
+prenom :hazgui
+adresse mail :chedlihazgui@outlook.com
+-------------
+
+ Vous avez supprimee : 
+cin :23233233
+
+---------
+
+ Vous avez supprimee : 
+cin :23233233
+
+---------
+
+ Vous avez supprimee : 
+cin :23233233
+
+---------
+
+ Vous avez ajoutee : 
+cin :14607121
+num_tel :50442779
+nom :chedly
+prenom :hazgui
+adresse mail :chedli@outlook.com
+-------------
+
+ Vous avez supprimee : 
+cin :
+
+---------
+
+ Vous avez supprimee : 
+cin :14607112
+
+---------
+
+ Vous avez supprimee : 
+cin :12121212
+
+---------
+
+ Vous avez supprimee : 
+cin :
+
+---------
+
+ Vous avez supprimee : 
+cin :14607133
+
+---------
+
+ Vous avez supprimee : 
+cin :14607123
+
+---------
+
+ Vous avez supprimee : 
+cin :14607121
+
+---------
+
+ Vous avez ajoutee : 
+cin :11111111
+num_tel :22222222
+nom :chedly
+prenom :hazgui
+adresse mail :azaz
+-------------
+
+ Vous avez modifiee : 
+cin :14607121
+num_tel :
+nom :chdoula
+prenom :
+adresse mail :
+-------------
+
+ Vous avez modifiee : 
+cin :14607121
+num_tel :44444444
+nom :chdoula
+prenom :hazzzz
+adresse mail :ARAR
+-------------
+
+ Vous avez supprimee : 
+cin :11111111
+
+---------
+
+ Vous avez ajoutee : 
+cin :111
+num_tel :222
+nom :azaz
+prenom :azaz
+adresse mail :erer
+-------------
+
+ Vous avez supprimee : 
+cin :111
+
+---------
+
+ Vous avez ajoutee : 
+cin :1212
+num_tel :1211
+nom :ched
+prenom :eded
+adresse mail :azeaze
+-------------
+
+ Vous avez supprimee : 
+cin :1212
+
+---------
+
+ Vous avez ajoutee : 
+cin :222
+num_tel :12212
+nom :azaz
+prenom :ched
+adresse mail :dfdf
+-------------
+
+ Vous avez supprimee : 
+cin :222
+
+---------
+
+ Vous avez ajoutee : 
+cin :23
+num_tel :34
+nom :az
+prenom :az
+adresse mail :azaz
+-------------
+
+ Vous avez ajoutee : 
+cin :2312
+num_tel :3412
+nom :azaz
+prenom :azaz
+adresse mail :azazaze
+-------------
+
+ Vous avez ajoutee : 
+cin :23122
+num_tel :3412
+nom :daz
+prenom :azaz
+adresse mail :azazaze
+-------------
+
+ Vous avez ajoutee : 
+cin :2312211
+num_tel :3412
+nom :aaaaz
+prenom :azaz
+adresse mail :azazaze
+-------------
+
+ Vous avez modifiee : 
+cin :23
+num_tel :3434
+nom :khalil
+prenom :trigui
+adresse mail :zzzzz
+-------------
+
+ Vous avez supprimee : 
+cin :23
+
+---------
+
+ Vous avez supprimee : 
+cin :23122
+
+---------
