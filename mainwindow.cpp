@@ -12,19 +12,23 @@
 #include<QtPrintSupport/QPrinter>
 #include<QtPrintSupport/QPrintDialog>
 #include<QGraphicsDropShadowEffect>
-#include"mailing.h"
+#include"smtp.h"
+#include<QFileDialog>
+#include<QDir>
 using namespace std;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //pour le mailing
+    connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
+    connect(ui->browseBtn, SIGNAL(clicked()), this, SLOT(browse()));
     ui->tableView->setModel(Emp.afficher());
     ui->tableView_3->setModel(Emp.afficher());
 
-    //pour le mailing
-    connect(ui->pb_envoyer, SIGNAL(clicked()),this, SLOT(sendMail()));
-    connect(ui->pb_browse, SIGNAL(clicked()), this, SLOT(browse()));
+
+
 
 
     //logo app
@@ -64,6 +68,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->comboBox_19,&QComboBox::currentTextChanged,this,&MainWindow::on_comboBox_19_currentTextChanged);
     QObject::connect(ui->comboBox_5,&QComboBox::currentTextChanged,this,&MainWindow::on_comboBox_5_currentTextChanged);
     QObject::connect(ui->pb_imprimer,&QPushButton::clicked,this,&MainWindow::on_pb_imprimer_clicked);
+    QObject::connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
+    QObject::connect(ui->browseBtn, SIGNAL(clicked()), this, SLOT(browse()));
 
 
 
@@ -121,6 +127,7 @@ void MainWindow::on_pb_ajouter_clicked()
     else
         QMessageBox::critical(nullptr,QObject::tr("Not ok"),QObject::tr("Ajouter non effectué\n""Click Cancel to exit."),QMessageBox::Cancel);
   //  }
+    qDebug()<<QSslSocket::supportsSsl() << QSslSocket::sslLibraryBuildVersionString() << QSslSocket::sslLibraryVersionString();
 }
 
 void MainWindow::on_pb_supprimer_clicked()
@@ -469,4 +476,46 @@ void MainWindow::on_pb_imprimer_clicked()
 
     delete document;
 }
+void  MainWindow::browse()
+{
+    files.clear();
 
+    QFileDialog dialog(this);
+    dialog.setDirectory(QDir::homePath());
+    dialog.setFileMode(QFileDialog::ExistingFiles);
+
+    if (dialog.exec())
+        files = dialog.selectedFiles();
+
+    QString fileListString;
+    foreach(QString file, files)
+        fileListString.append( "\"" + QFileInfo(file).fileName() + "\" " );
+
+    ui->file->setText( fileListString );
+
+}
+void   MainWindow::sendMail()
+{
+    Smtp* smtp = new Smtp("balkis.hajharrouchi@esprit.tn",ui->mail_pass->text(), "smtp.gmail.com");
+    connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+
+    if( !files.isEmpty() )
+        smtp->sendMail("balkis.hajharrouchi@esprit.tn", ui->rcpt->text() , ui->subject->text(),ui->msg->toPlainText(), files );
+    else
+        smtp->sendMail("balkis.hajharrouchi@esprit.tn", ui->rcpt->text() , ui->subject->text(),ui->msg->toPlainText());
+}
+
+
+
+
+void   MainWindow::mailSent(QString status)
+{
+
+    if(status == "Message sent")
+        QMessageBox::warning( nullptr, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
+    ui->rcpt->clear();
+    ui->subject->clear();
+    ui->file->clear();
+    ui->msg->clear();
+    ui->mail_pass->clear();
+}

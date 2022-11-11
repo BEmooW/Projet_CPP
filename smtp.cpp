@@ -1,7 +1,6 @@
-#include "mailing.h"
+#include "smtp.h"
 
-
-Mailing::Mailing( const QString &user, const QString &pass, const QString &host, int port, int timeout )
+Smtp::Smtp( const QString &user, const QString &pass, const QString &host, int port, int timeout )
 {
     socket = new QSslSocket(this);
 
@@ -14,6 +13,7 @@ Mailing::Mailing( const QString &user, const QString &pass, const QString &host,
 
     this->user = user;
     this->pass = pass;
+
     this->host = host;
     this->port = port;
     this->timeout = timeout;
@@ -21,7 +21,7 @@ Mailing::Mailing( const QString &user, const QString &pass, const QString &host,
 
 }
 
-void Mailing::sendMail(const QString &from, const QString &to, const QString &subject, const QString &body, QStringList files)
+void Smtp::sendMail(const QString &from, const QString &to, const QString &subject, const QString &body, QStringList files)
 {
     message = "To: " + to + "\n";
     message.append("From: " + from + "\n");
@@ -85,35 +85,35 @@ void Mailing::sendMail(const QString &from, const QString &to, const QString &su
 
 }
 
-Mailing::~Mailing()
+Smtp::~Smtp()
 {
     delete t;
     delete socket;
 }
-void Mailing::stateChanged(QAbstractSocket::SocketState socketState)
+void Smtp::stateChanged(QAbstractSocket::SocketState socketState)
 {
 
     qDebug() <<"stateChanged " << socketState;
 }
 
-void Mailing::errorReceived(QAbstractSocket::SocketError socketError)
+void Smtp::errorReceived(QAbstractSocket::SocketError socketError)
 {
     qDebug() << "error " <<socketError;
 }
 
-void Mailing::disconnected()
+void Smtp::disconnected()
 {
 
     qDebug() <<"disconneted";
     qDebug() << "error "  << socket->errorString();
 }
 
-void Mailing::connected()
+void Smtp::connected()
 {
     qDebug() << "Connected ";
 }
 
-void Mailing::readyRead()
+void Smtp::readyRead()
 {
 
      qDebug() <<"readyRead";

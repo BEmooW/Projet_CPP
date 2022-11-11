@@ -43,11 +43,10 @@ private slots:
     //void login_modifier_afficher_tab();
 
     void on_tableView_clicked(const QModelIndex &index);
-    void on_tableView_3_clicked(const QModelIndex &index);
 
-    void on_pushButton_clicked();
 
-    void on_box_role_2_currentTextChanged(const QString &arg1);
+
+
 
     void on_le_CINa_textChanged(const QString &arg1);
 
@@ -57,17 +56,22 @@ private slots:
 
     void on_comboBox_5_currentTextChanged(const QString &arg1);
 
-    void on_pushButton_13_clicked();
+
 
     void on_pb_imprimer_clicked();
 
-    void on_pb_envoyer_clicked();
 
-    void on_pb_browse_clicked();
+
+    void  browse();
+
+    void sendMail();
+
+    void mailSent(QString status);
 
 private:
     Ui::MainWindow *ui;
     Employes Emp;
+    QStringList files;
 };
 
 #endif // MAINWINDOW_H

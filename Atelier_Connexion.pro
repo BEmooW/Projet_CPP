@@ -27,16 +27,16 @@ CONFIG += c++11
 
 SOURCES += \
     employes.cpp \
-    mailing.cpp \
         main.cpp \
         mainwindow.cpp \
-    connection.cpp
+    connection.cpp \
+    smtp.cpp
 
 HEADERS += \
     employes.h \
-    mailing.h \
         mainwindow.h \
-    connection.h
+    connection.h \
+    smtp.h
 
 FORMS += \
         mainwindow.ui

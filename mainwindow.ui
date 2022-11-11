@@ -74,7 +74,7 @@ font: 9pt &quot;Century Schoolbook&quot;;</string>
 font: 9pt &quot;Century Gothic&quot;;</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -1299,7 +1299,7 @@ border-bottom:1px solid #707172;</string>
        <string>attachement ici</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pb_browse">
+     <widget class="QPushButton" name="browseBtn">
       <property name="geometry">
        <rect>
         <x>710</x>
@@ -1325,7 +1325,7 @@ border-bottom:1px solid #707172;</string>
        <string>taper votre message</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pb_envoyer">
+     <widget class="QPushButton" name="sendBtn">
       <property name="geometry">
        <rect>
         <x>710</x>
@@ -1452,7 +1452,7 @@ background: transparent;
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>510</y>
+      <y>500</y>
       <width>161</width>
       <height>61</height>
      </rect>
