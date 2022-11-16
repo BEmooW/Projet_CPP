@@ -16,6 +16,9 @@
 #include <QDialog>
 #include <QAbstractItemModel>
 #include <QMainWindow>
+#include <QFileDialog>
+#include <QMainWindow>
+#include <QVariant>
 
 namespace Ui {
 class MainWindow;
@@ -36,7 +39,7 @@ private slots:
     void on_rechercherClient_4_clicked();
     void on_tri_clicked();
     void on_afficherHisto_clicked();
-
+    void on_pdf_6_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -45,8 +48,10 @@ private:
     histo histor;
     histo histor1;
     histo histor2;
-
     QByteArray data; // variable contenant les données reçues
+signals:
+    void setCenter(QVariant, QVariant);
+    void addMarker(QVariant, QVariant);
 };
 
 #endif // MainWindow_H

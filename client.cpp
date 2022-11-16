@@ -1,12 +1,14 @@
 #include "client.h"
 
-Client::Client(int cin,int num, QString nom, QString prenom, QString mail)
+Client::Client(int cin, int num, QString nom, QString prenom, QString mail)
 {
     this->cin=cin;
     this->num=num;
     this->nom=nom;
     this->prenom=prenom;
     this->mail=mail;
+    ;
+
 }
 
 bool Client::ajouter()

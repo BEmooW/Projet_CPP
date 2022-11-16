@@ -1,9 +1,13 @@
-QT       += core gui
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += core gui
 QT += sql
-
+QT += svg
+QT += printsupport
+QT += network
+QT += serialport
 CONFIG += c++11
+QT += axcontainer
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets quickwidgets
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -24,6 +28,7 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    WebAxWidget.h \
     client.h \
     connection.h \
     histo.h \
@@ -36,3 +41,8 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    qml.qrc
+
+DISTFILES +=

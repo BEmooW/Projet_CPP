@@ -13,7 +13,6 @@ private:
     //Attributs
     int cin,num;
     QString nom,prenom,mail;
-    QDate date_ajout;
 
 public:
     //Constructeurs
@@ -27,12 +26,14 @@ public:
     QString getPrenom(){return prenom;}
     QString getAdresseMail(){return mail;}
 
+
     //Setters
     void setCin(int cin){this->cin=cin;}
     void setnul_tel(int num){this->num=num;}
     void setNom(QString nom){this->nom=nom;}
     void setPrenom(QString prenom){this->prenom=prenom;}
     void setAdresseMail(QString mail){this->mail=mail;}
+
 
     //Methodes
     bool ajouter();

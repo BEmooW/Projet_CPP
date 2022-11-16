@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "client.h"
 #include "histo.h"
+#include "WebAxWidget.h"
 #include <QMessageBox>
 #include <QDate>
 #include <QIntValidator>
@@ -23,9 +24,16 @@
 #include <QtPrintSupport/QAbstractPrintDialog>
 #include <QDirModel>
 #include <QtPrintSupport/QPrintDialog>
+#include <QPrinter>
+#include <QPrintDialog>
 #include <QErrorMessage>
 #include <QFile>
 #include <QDataStream>
+#include <QQuickItem>
+#include <QAxBase>
+#include <QVariant>
+
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -41,6 +49,15 @@ MainWindow::MainWindow(QWidget *parent) :
      ui->ajouter_cin_4->setValidator(new QIntValidator(0,99999999,this));
      ui->ajouter_num_4->setValidator(new QIntValidator(0,99999999,this));
      ui->ajouter_adresseMail_4->setValidator(new QRegExpValidator(rxM,this));
+
+
+
+     QSettings settings(QSettings::IniFormat, QSettings::UserScope,
+     QCoreApplication::organizationName(), QCoreApplication::applicationName());
+
+     ui->WebBrowser_2->dynamicCall("Navigate(const QString&)", "https://www.google.com/maps/place/ESPRIT/@36.9016729,10.1713215,15z");
+
+
 }
 
 MainWindow::~MainWindow()
@@ -143,3 +160,20 @@ void MainWindow::on_tri_clicked()
 {
     ui->affichageClient->setModel(Etmp.triNom());
 }
+void MainWindow::on_pdf_6_clicked()
+{
+            QPrinter printer;
+            printer.setPrinterName("Printer Name");
+
+            QPrintDialog pDialog(&printer, this);
+
+            if(pDialog.exec() == QDialog::Rejected){
+                QMessageBox::warning(this, "Warning", "Cannot Access Printer");
+                return;
+            }
+            ui->affichageClient->render(&printer);
+
+}
+
+
+

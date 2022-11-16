@@ -238,3 +238,274 @@ cin :23
 cin :23122
 
 ---------
+
+ Vous avez ajoutee : 
+cin :14607112
+num_tel :50442779
+nom :chedly
+prenom :hazgui
+adresse mail :chedly
+-------------
+
+ Vous avez ajoutee : 
+cin :11111111
+num_tel :22222222
+nom :chedly
+prenom :hazgui
+adresse mail :chedli@zeaze.com
+-------------
+
+ Vous avez supprimee : 
+cin :2312
+
+---------
+
+ Vous avez supprimee : 
+cin :11111111
+
+---------
+
+ Vous avez supprimee : 
+cin :14607112
+
+---------
+
+ Vous avez supprimee : 
+cin :2312211
+
+---------
+
+ Vous avez ajoutee : 
+cin :12
+num_tel :12
+nom :az
+prenom :az
+adresse mail :ched@
+-------------
+
+ Vous avez ajoutee : 
+cin :12121212
+num_tel :12121212
+nom :az
+prenom :az
+adresse mail :ched@
+-------------
+
+ Vous avez ajoutee : 
+cin :12322233
+num_tel :12121212
+nom :ahmed
+prenom :ahmed
+adresse mail :ahmetur@outlook.com
+-------------
+
+ Vous avez supprimee : 
+cin :
+
+---------
+
+ Vous avez ajoutee : 
+cin :12322234
+num_tel :12121212
+nom :aa
+prenom :ahmed
+adresse mail :ahmetur@outlook.com
+-------------
+
+ Vous avez ajoutee : 
+cin :123345
+num_tel :1234567
+nom :a
+prenom :a
+adresse mail :aeppizad
+-------------
+
+ Vous avez ajoutee : 
+cin :1234
+num_tel :12344
+nom :hedhahoua
+prenom :hazguiiiii
+adresse mail :chedliihaz@ouaze.qc
+-------------
+
+ Vous avez supprimee : 
+cin :12
+
+---------
+
+ Vous avez modifiee : 
+cin :1234
+num_tel :11111111
+nom :salim
+prenom :sallouma
+adresse mail :salim@espr.tn
+-------------
+
+ Vous avez supprimee : 
+cin :1234
+
+---------
+
+ Vous avez supprimee : 
+cin :123345
+
+---------
+
+ Vous avez supprimee : 
+cin :12121212
+
+---------
+
+ Vous avez supprimee : 
+cin :12322222
+
+---------
+
+ Vous avez supprimee : 
+cin :12322233
+
+---------
+
+ Vous avez supprimee : 
+cin :12322234
+
+---------
+
+ Vous avez ajoutee : 
+cin :12345
+num_tel :12345
+nom :chedly
+prenom :hazgui
+adresse mail :chedli@outlook.com
+-------------
+
+ Vous avez ajoutee : 
+cin :23456
+num_tel :23456
+nom :heni
+prenom :slajmi
+adresse mail :heni@outlook.com
+-------------
+
+ Vous avez ajoutee : 
+cin :34567
+num_tel :34567
+nom :youssef
+prenom :hrigua
+adresse mail :youssef@outlook.com
+-------------
+
+ Vous avez ajoutee : 
+cin :45678
+num_tel :45678
+nom :ayoub
+prenom :zighni
+adresse mail :ayoub@outlook.com
+-------------
+
+ Vous avez modifiee : 
+cin :
+num_tel :
+nom :
+prenom :
+adresse mail :
+-------------
+
+ Vous avez modifiee : 
+cin :
+num_tel :
+nom :chedly
+prenom :hzougua
+adresse mail :
+-------------
+
+ Vous avez modifiee : 
+cin :
+num_tel :12345
+nom :chdon
+prenom :
+adresse mail :
+-------------
+
+ Vous avez modifiee : 
+cin :45678
+num_tel :77777
+nom :khalil
+prenom :mohamed
+adresse mail :wow
+-------------
+
+ Vous avez modifiee : 
+cin :45678
+num_tel :11111
+nom :ahmed
+prenom :mohamed
+adresse mail :wow
+-------------
+
+ Vous avez supprimee : 
+cin :45678
+
+---------
+
+ Vous avez supprimee : 
+cin :34567
+
+---------
+
+ Vous avez supprimee : 
+cin :12345
+
+---------
+
+ Vous avez supprimee : 
+cin :23456
+
+---------
+
+ Vous avez ajoutee : 
+cin :11111
+num_tel :22222
+nom :hamdi
+prenom :awadni
+adresse mail :hamdi@esprit.tn
+-------------
+
+ Vous avez ajoutee : 
+cin :22222
+num_tel :33333
+nom :stupha
+prenom :mansour
+adresse mail :stupha@esprit.tn
+-------------
+
+ Vous avez ajoutee : 
+cin :33333
+num_tel :44444
+nom :ahmed
+prenom :sfx
+adresse mail :ahmed@esprit.tn
+-------------
+
+ Vous avez modifiee : 
+cin :11111
+num_tel :676767
+nom :anis
+prenom :awadni
+adresse mail :anis@esprit.tn
+-------------
+
+ Vous avez supprimee : 
+cin :11111
+
+---------
+
+ Vous avez supprimee : 
+cin :33333
+
+---------
+
+ Vous avez supprimee : 
+cin :22222
+
+---------
