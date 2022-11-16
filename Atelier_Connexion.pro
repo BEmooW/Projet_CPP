@@ -26,24 +26,37 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    camera.cpp \
+    chat.cpp \
     employes.cpp \
+    exportexcelobject.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
+    notepad.cpp \
     smtp.cpp
 
 HEADERS += \
+    camera.h \
+    chat.h \
     employes.h \
+    exportexcelobject.h \
         mainwindow.h \
     connection.h \
+    notepad.h \
     smtp.h
 
 FORMS += \
-        mainwindow.ui
+        camera.ui \
+        mainwindow.ui \
+        notepad.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    ressource.qrc
 
 

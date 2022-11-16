@@ -3,7 +3,9 @@
 #include"employes.h"
 #include <QMainWindow>
 #include<ui_mainwindow.h>
-
+#include "camera.h"
+#include"stat_combo.h"
+#include"notepad.h"
 namespace Ui {
 class MainWindow;
 }
@@ -68,10 +70,47 @@ private slots:
 
     void mailSent(QString status);
 
+    void on_pb_camera_clicked();
+
+
+
+
+    void on_tableView_rh_clicked(const QModelIndex &index);
+
+    void on_pushButton_2_clicked();
+
+    void on_pb_excel_clicked();
+
+
+
+    void on_comboBox_rh_currentTextChanged(const QString &arg1);
+
+    void on_le_CINa_2_textChanged(const QString &arg1);
+
+    void on_pushButton_19_clicked();
+
+    void on_pushButton_clicked();
+
+
+
+    void on_tabWidget_rh_currentChanged(int index);
+
+    void on_tabWidget_rh_tabBarClicked(int index);
+
+
+
+
+
+
+    void on_notepad_clicked();
+
 private:
     Ui::MainWindow *ui;
     Employes Emp;
     QStringList files;
+    camera *c;
+    notepad *n;
+
 };
 
 #endif // MAINWINDOW_H
