@@ -1,12 +1,14 @@
 #include "client.h"
 
-Client::Client(int cin, int num, QString nom, QString prenom, QString mail)
+Client::Client(int cin, int num, QString nom, QString prenom, QString mail, int card)
 {
     this->cin=cin;
     this->num=num;
     this->nom=nom;
     this->prenom=prenom;
     this->mail=mail;
+    this->card=0;
+
     ;
 
 }
@@ -16,13 +18,12 @@ bool Client::ajouter()
     QSqlQuery query;
     QString res = QString::number(cin);
 
-    query.prepare("insert into client(nom,prenom,cin,num,mail)" "values(:nom,:prenom,:cin,:num,:mail)");
+    query.prepare("insert into client(nom,prenom,cin,num,mail,card)" "values(:nom,:prenom,:cin,:num,:mail,:card)");
     query.bindValue(":nom",nom);
     query.bindValue(":prenom",prenom);
     query.bindValue(":cin",res);
     query.bindValue(":num",num);
     query.bindValue(":mail",mail);
-
     return query.exec();
 }
 
@@ -35,7 +36,6 @@ QSqlQueryModel * Client::afficher()
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("Cin"));
     model->setHeaderData(3,Qt::Horizontal,QObject::tr("num"));
     model->setHeaderData(4,Qt::Horizontal,QObject::tr("Adresse mail"));
-
     return model;
 }
 
@@ -55,14 +55,13 @@ bool Client::modifier()
     QSqlQuery query;
     QString res = QString::number(cin);
 
-    query.prepare("UPDATE client SET nom=:nom, prenom=:prenom,num=:num, mail=:mail WHERE cin=:cin" );
+    query.prepare("UPDATE client SET nom=:nom, prenom=:prenom,num=:num, mail=:mail  WHERE cin=:cin" );
 
     query.bindValue(":cin",res);
     query.bindValue(":num",num);
     query.bindValue(":nom",nom);
     query.bindValue(":prenom",prenom);
     query.bindValue(":mail",mail);
-
     return query.exec();
 }
 
@@ -72,7 +71,6 @@ bool Client::modifier()
 QSqlQueryModel * Client::rechercherNom(QString nom)
 {
     QSqlQueryModel * model= new QSqlQueryModel();
-
     model->setQuery("select * from client where nom like '" +nom+"'");
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("Cin"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("num"));
@@ -96,5 +94,42 @@ QSqlQueryModel * Client::triNom()
 
     return model;
 }
+
+
+
+bool Client::update()
+{
+    QSqlQuery query;
+
+    QString car = QString::number(card);
+    car = car+1;
+
+    query.prepare("UPDATE client SET card=:card  WHERE nom=:nom" );
+    query.bindValue(":card",card);
+
+    return query.exec();
+}
+
+
+QSqlQueryModel * Client::plus(QString nom)
+{
+
+    QSqlQuery query;
+    QString c = QString::number(card);
+    query.bindValue(":card",c);
+    query.prepare("UPDATE client SET card=:card  WHERE cin=:cin" );
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select * from client where nom like '" +nom+"'");
+    return model;
+}
+
+QSqlQueryModel * Client::plus2()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select * from client order by card");
+    return model;
+}
+
+
 
 

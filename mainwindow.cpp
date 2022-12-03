@@ -40,6 +40,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
      ui->setupUi(this);
+    // QObject::connect(ui->affichageClient_3,&QTableView::clicked,this,&MainWindow::on_affichageClient_3_clicked);
      ui->affichageClient->setModel(Etmp.afficher());
      // Controle saisie
      QRegExp rx("[A-Z][a-z]{0,30}");
@@ -49,14 +50,26 @@ MainWindow::MainWindow(QWidget *parent) :
      ui->ajouter_cin_4->setValidator(new QIntValidator(0,99999999,this));
      ui->ajouter_num_4->setValidator(new QIntValidator(0,99999999,this));
      ui->ajouter_adresseMail_4->setValidator(new QRegExpValidator(rxM,this));
-
-
-
+     ui->WebBrowser_2->dynamicCall("Navigate(const QString&)", "https://www.google.com/maps/place/ESPRIT/@36.9016729,10.1713215,15z");
      QSettings settings(QSettings::IniFormat, QSettings::UserScope,
      QCoreApplication::organizationName(), QCoreApplication::applicationName());
 
-     ui->WebBrowser_2->dynamicCall("Navigate(const QString&)", "https://www.google.com/maps/place/ESPRIT/@36.9016729,10.1713215,15z");
-
+         QBarSet *set0 = new QBarSet("num");
+         *set0 << 1 << 2 << 3 ;
+         QBarSeries *series = new QBarSeries();
+         series->append(set0);
+         QChart *chart = new QChart();
+         chart->addSeries(series);
+         chart->setTitle("statistiques des numeros de telph");
+         chart->setAnimationOptions(QChart::SeriesAnimations);
+         QStringList categories;
+         categories << "orange" << "ooredoo" << "telecom" ;
+         QBarCategoryAxis *axis = new QBarCategoryAxis();
+         axis->append(categories);
+         chart->createDefaultAxes();
+         chart->setAxisX(axis, series);
+         QChartView *chartView = new QChartView(chart);
+         chartView->setParent(ui->horizontalFrame);
 
 }
 
@@ -73,7 +86,8 @@ void MainWindow::on_ajouterClient_4_clicked()
         int res=ui->ajouter_cin_4->text().toInt();
         int num_tel=ui->ajouter_num_4->text().toInt();
         QString adresse_mail=ui->ajouter_adresseMail_4->text();
-        Client c(res,num_tel,nom, prenom, adresse_mail);
+        int card=0;
+        Client c(res,num_tel,nom, prenom, adresse_mail,card);
         bool test=c.ajouter();
         if(test)
         {
@@ -115,7 +129,8 @@ void MainWindow::on_modifierClient_4_clicked()
     int res=ui->cinClient_8->text().toInt();
     int num_tel=ui->num_8->text().toInt();
     QString adresse_mail=ui->modifier_adresseMail_4->text();
-    Client c(res,num_tel,nom, prenom, adresse_mail);
+    int card=ui->num_8->text().toInt();
+    Client c(res,num_tel,nom, prenom, adresse_mail,card);
     bool test=c.modifier();
     if(test)
     {
@@ -156,10 +171,13 @@ void MainWindow::on_afficherHisto_clicked()
         QTextStream in(&file);
         ui->textBrowser->setText(in.readAll());
 }
+
 void MainWindow::on_tri_clicked()
 {
     ui->affichageClient->setModel(Etmp.triNom());
 }
+
+
 void MainWindow::on_pdf_6_clicked()
 {
             QPrinter printer;
@@ -175,5 +193,33 @@ void MainWindow::on_pdf_6_clicked()
 
 }
 
+
+void MainWindow::on_plus_clicked()
+{
+    QString nom=ui->recherche_5->text();
+    QString prenom=prenom;
+    int res=res;
+    int num_tel=num_tel;
+    int card=card;
+    QString adresse_mail=adresse_mail;
+    Client c(res,num_tel,nom, prenom, adresse_mail,card);
+    bool test=c.update();
+    if(test)
+    {
+        ui->affichageClient_3->setModel(Etmp.plus(nom));
+        QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("presence ajoutée! \n" "Click cancel to exit"),QMessageBox::Cancel);
+        histor.save2("SUPPRIMER","cin :"+ui->cinClient_8->text(),"num_tel :"+ui->num_8->text(),"nom :"+ui->modifier_nom_4->text(),"prenom :"+ui->modifier_prenom_4->text(),"adresse mail :"+ui->modifier_adresseMail_4->text());
+    }
+    else
+    {
+        QMessageBox::critical(nullptr,QObject::tr("Not OK"),QObject::tr("Modification non effectuée! \n" "Click cancel to exit"),QMessageBox::Cancel);
+    }
+
+}
+
+void MainWindow::on_tricard_clicked()
+{
+   ui->affichageClient_2->setModel(Etmp.plus2());
+}
 
 

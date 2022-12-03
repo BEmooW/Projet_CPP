@@ -1,4 +1,5 @@
 QT += core gui
+QT += core gui charts
 QT += sql
 QT += svg
 QT += printsupport

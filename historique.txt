@@ -509,3 +509,172 @@ cin :33333
 cin :22222
 
 ---------
+
+ Vous avez ajoutee : 
+cin :1212
+num_tel :1212
+nom :chedly
+prenom :hh
+adresse mail :ched
+-------------
+
+ Vous avez ajoutee : 
+cin :1
+num_tel :2
+nom :aa
+prenom :aa
+adresse mail :aa
+-------------
+
+ Vous avez ajoutee : 
+cin :4
+num_tel :2
+nom :bb
+prenom :aa
+adresse mail :aa
+-------------
+
+ Vous avez ajoutee : 
+cin :6
+num_tel :1
+nom :chedly
+prenom :wow
+adresse mail :aa
+-------------
+
+ Vous avez supprimee : 
+cin :1212
+
+---------
+
+ Vous avez supprimee : 
+cin :4
+
+---------
+
+ Vous avez supprimee : 
+cin :6
+
+---------
+
+ Vous avez supprimee : 
+cin :1
+
+---------
+
+ Vous avez ajoutee : 
+cin :6
+num_tel :1
+nom :chedly
+prenom :wow
+adresse mail :aa
+-------------
+
+ Vous avez modifiee : 
+cin :1
+num_tel :
+nom :
+prenom :
+adresse mail :
+-------------
+
+ Vous avez modifiee : 
+cin :6
+num_tel :4
+nom :khalil
+prenom :chourabi
+adresse mail :cc
+-------------
+
+ Vous avez supprimee : 
+cin :6
+
+---------
+
+ Vous avez ajoutee : 
+cin :6
+num_tel :1
+nom :chedly
+prenom :wow
+adresse mail :aa
+-------------
+
+ Vous avez ajoutee : 
+cin :1
+num_tel :1
+nom :a
+prenom :a
+adresse mail :a
+-------------
+
+ Vous avez ajoutee : 
+cin :2
+num_tel :2
+nom :b
+prenom :b
+adresse mail :b
+-------------
+
+ Vous avez ajoutee : 
+cin :3
+num_tel :3
+nom :c
+prenom :c
+adresse mail :c
+-------------
+
+ Vous avez modifiee : 
+cin :1
+num_tel :1
+nom :z
+prenom :z
+adresse mail :z
+-------------
+
+ Vous avez modifiee : 
+cin :
+num_tel :
+nom :
+prenom :
+adresse mail :
+-------------
+
+ Vous avez modifiee : 
+cin :
+num_tel :
+nom :
+prenom :
+adresse mail :
+-------------
+
+ Vous avez modifiee : 
+cin :
+num_tel :
+nom :
+prenom :
+adresse mail :
+-------------
+
+ Vous avez modifiee : 
+cin :
+num_tel :
+nom :
+prenom :
+adresse mail :
+-------------
+
+ Vous avez modifiee : 
+cin :
+num_tel :
+nom :
+prenom :
+adresse mail :
+-------------
+
+ Vous avez modifiee : 
+cin :
+num_tel :
+nom :
+prenom :
+adresse mail :
+-------------

@@ -19,6 +19,12 @@
 #include <QFileDialog>
 #include <QMainWindow>
 #include <QVariant>
+#include <QtCharts>
+#include <QChartView>
+#include <QLineSeries>
+
+
+
 
 namespace Ui {
 class MainWindow;
@@ -40,6 +46,9 @@ private slots:
     void on_tri_clicked();
     void on_afficherHisto_clicked();
     void on_pdf_6_clicked();
+    void on_plus_clicked();
+    void on_tricard_clicked();
+
 
 private:
     Ui::MainWindow *ui;

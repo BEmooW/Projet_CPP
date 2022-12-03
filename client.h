@@ -11,17 +11,18 @@ class Client
 {
 private:
     //Attributs
-    int cin,num;
+    int cin,num,card;
     QString nom,prenom,mail;
 
 public:
     //Constructeurs
     Client(){};
-    Client(int,int, QString, QString, QString);
+    Client(int,int, QString, QString, QString,int);
 
     //Getters
     int getCin(){return cin;}
     int getnum(){return num;}
+    int getcard(){return card;}
     QString getNom(){return nom;}
     QString getPrenom(){return prenom;}
     QString getAdresseMail(){return mail;}
@@ -33,6 +34,7 @@ public:
     void setNom(QString nom){this->nom=nom;}
     void setPrenom(QString prenom){this->prenom=prenom;}
     void setAdresseMail(QString mail){this->mail=mail;}
+    void fid();
 
 
     //Methodes
@@ -42,6 +44,11 @@ public:
     bool modifier();
     QSqlQueryModel * rechercherNom(QString);
     QSqlQueryModel * triNom();
+    QSqlQueryModel * plus(QString );
+    QSqlQueryModel * plus2();
+    bool update();
+
+
 };
 
 #endif // CLIENT_H
