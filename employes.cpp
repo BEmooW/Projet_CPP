@@ -3,7 +3,7 @@
 #include<QtDebug>
 #include<ui_mainwindow.h>
 #include<QMessageBox>
-
+#include"agent.h"
 #include<iostream>
 using namespace std;
 Employes::Employes()
@@ -12,7 +12,7 @@ Employes::Employes()
     hs=0;
     salaire=0;
 }
-Employes::Employes(int CIN,QString nom,QString prenom,int tel,QString email,int num_aff,QString role,QString sexe,QString etat_civil,QString date_naiss,int matricule)
+Employes::Employes(int CIN,QString nom,QString prenom,int tel,QString email,int num_aff,QString role,QString sexe,QString etat_civil,QString date_naiss,int matricule,QString password)
 {
     this->CIN=CIN;
     this->nom=nom;
@@ -25,6 +25,7 @@ Employes::Employes(int CIN,QString nom,QString prenom,int tel,QString email,int 
     this->etat_civil=etat_civil;
     this->date_naiss=date_naiss;
     this->matricule=matricule;
+    this->password=password;
 //    this->ht=ht;
 //    this->hs=hs;
 //    this->prix_ht=prix_ht;
@@ -59,7 +60,7 @@ bool Employes::ajouter()
    // bool test=false;
     QSqlQuery query;
    // QString CIN_string=QString::number(CIN);
-          query.prepare("INSERT INTO employes (CIN, nom, prenom, num_tel, email, num_aff, role, sexe, etat_civil, matricule, date_naiss) ""VALUES (:CIN, :nom, :prenom, :num_tel, :email, :num_aff, :role, :sexe, :etat_civil, :matricule, :date_naiss)");//ken values kbal yani lezm baedha nafs l nidham mta tableau w kemlin methode 2:
+          query.prepare("INSERT INTO employes (CIN, nom, prenom, num_tel, email, num_aff, role, sexe, etat_civil, matricule, date_naiss, password) ""VALUES (:CIN, :nom, :prenom, :num_tel, :email, :num_aff, :role, :sexe, :etat_civil, :matricule, :date_naiss, :password)");//ken values kbal yani lezm baedha nafs l nidham mta tableau w kemlin methode 2:
           query.bindValue(":CIN", CIN);
           query.bindValue(":nom", nom);
           query.bindValue(":prenom", prenom);
@@ -71,15 +72,21 @@ bool Employes::ajouter()
           query.bindValue(":etat_civil", etat_civil);
           query.bindValue(":matricule", matricule);
           query.bindValue(":date_naiss", date_naiss);
-
+          query.bindValue(":password", password);
 
           return query.exec();
+
+
     //return test;
 }
 
+
+
+
+
 QSqlQueryModel *Employes::afficher(){
 QSqlQueryModel *model=new QSqlQueryModel();
-model->setQuery("select CIN, matricule, nom, prenom, num_tel, sexe, etat_civil, email, date_naiss, num_aff,role from Employes");//pour afficher un champ specifique "select champ1 champ2 from Employes" on peut choisir l'ordre , "select * from Employes" : * pour afficher kolchay
+model->setQuery("select CIN, matricule, nom, prenom, presence, num_tel, sexe, etat_civil, email, date_naiss, num_aff,role from Employes");//pour afficher un champ specifique "select champ1 champ2 from Employes" on peut choisir l'ordre , "select * from Employes" : * pour afficher kolchay
 
 return model;
 }
@@ -94,10 +101,28 @@ bool Employes::supprimer(QString CIN)
 
 
     QSqlQuery query;
+    //QSqlQuery *query2=new QSqlQuery;
     //QString CIN_string=QString::number(CIN);
+//    query2->prepare("select * from employes where CIN=:CIN");
+//    query2->bindValue(":CIN", CIN);
+//    query2->exec();
+//    if(query2->numRowsAffected()==0)
+//    {
+
+//       QMessageBox::warning(nullptr, QObject::tr("database is open"),
+//                   QObject::tr("employe introuvable .\n"
+//                               "Click Cancel to exit."), QMessageBox::Cancel);
+//       return false;
+
+//  }
+//    else{
+//        query2->prepare("select * from employes where CIN=:CIN");
+//        query2->exec();
+//        cout<<query2->numRowsAffected();
           query.prepare("Delete from employes where CIN=:CIN");
           query.bindValue(":CIN", CIN);
           return query.exec();
+    //}
 }
 bool Employes::supprimer1(int CIN)
 {

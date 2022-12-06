@@ -5,7 +5,7 @@
 #-------------------------------------------------
 QT+=sql
 CONFIG+=console
-QT       += core gui sql printsupport  network multimedia multimediawidgets charts widgets axcontainer
+QT       += core gui sql printsupport  network multimedia multimediawidgets charts widgets axcontainer serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -26,28 +26,49 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    agent.cpp \
+    arduino.cpp \
     camera.cpp \
     chat.cpp \
+    client.cpp \
     employes.cpp \
+    equipement.cpp \
+    espace.cpp \
     exportexcelobject.cpp \
+    facture.cpp \
+    histo.cpp \
+    historique.cpp \
+    login.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
     notepad.cpp \
+    qrcode.cpp \
     smtp.cpp
 
 HEADERS += \
+    agent.h \
+    arduino.h \
     camera.h \
     chat.h \
+    client.h \
     employes.h \
+    equipement.h \
+    espace.h \
     exportexcelobject.h \
+    facture.h \
+    histo.h \
+    historique.h \
+    login.h \
         mainwindow.h \
     connection.h \
     notepad.h \
+    qrcode.hpp \
     smtp.h
 
 FORMS += \
         camera.ui \
+        login.ui \
         mainwindow.ui \
         notepad.ui
 
@@ -57,6 +78,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    qml.qrc \
     ressource.qrc
 
 

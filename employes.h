@@ -7,13 +7,13 @@
 class Employes
 {
 
-    QString nom,prenom,email,date_naiss,role,sexe,etat_civil;
+    QString nom,prenom,email,date_naiss,role,sexe,etat_civil,rfid,password;
     int CIN,tel,num_aff,matricule,hs,ht,conge,prix_hs,prix_ht,salaire;
     //float salaire;//prix_hs,prix_ht,
 public:
     //constructeurs
     Employes();
-    Employes(int,QString,QString,int,QString,int,QString,QString,QString,QString,int);//int,int,float,float,float
+    Employes(int,QString,QString,int,QString,int,QString,QString,QString,QString,int,QString);//int,int,float,float,float
     Employes(int,QString,QString,int,QString,int,QString,QString,QString,QString,int,int,int,int,int,int);
     //Getters
     QString getNom(){return nom;}
@@ -24,6 +24,8 @@ public:
     void setPrenom(QString p){prenom=p;}
     void setCIN(int CIN){this->CIN=CIN;}
     void setSalaire(int s){salaire=s;}
+    //void setRFID(){"73 F4 62 A7";}
+
     //Fonctionnalités de base relatives à l'entité employé
     bool ajouter();
     QSqlQueryModel * afficher();
