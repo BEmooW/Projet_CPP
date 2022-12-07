@@ -678,3 +678,21 @@ nom :
 prenom :
 adresse mail :
 -------------
+
+ Vous avez supprimee : 
+cin :
+
+---------
+
+ Vous avez supprimee : 
+cin :2
+
+---------
+
+ Vous avez modifiee : 
+cin :6
+num_tel :2
+nom :a
+prenom :a
+adresse mail :a
+-------------

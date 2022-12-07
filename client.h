@@ -11,18 +11,18 @@ class Client
 {
 private:
     //Attributs
-    int cin,num,card;
+    int cin,num;
     QString nom,prenom,mail;
 
 public:
     //Constructeurs
     Client(){};
-    Client(int,int, QString, QString, QString,int);
+    Client(int,int, QString, QString, QString);
 
     //Getters
     int getCin(){return cin;}
     int getnum(){return num;}
-    int getcard(){return card;}
+    //int getcard(){return card;}
     QString getNom(){return nom;}
     QString getPrenom(){return prenom;}
     QString getAdresseMail(){return mail;}

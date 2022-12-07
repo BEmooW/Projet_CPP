@@ -86,8 +86,7 @@ void MainWindow::on_ajouterClient_4_clicked()
         int res=ui->ajouter_cin_4->text().toInt();
         int num_tel=ui->ajouter_num_4->text().toInt();
         QString adresse_mail=ui->ajouter_adresseMail_4->text();
-        int card=0;
-        Client c(res,num_tel,nom, prenom, adresse_mail,card);
+        Client c(res,num_tel,nom, prenom, adresse_mail);
         bool test=c.ajouter();
         if(test)
         {
@@ -130,7 +129,7 @@ void MainWindow::on_modifierClient_4_clicked()
     int num_tel=ui->num_8->text().toInt();
     QString adresse_mail=ui->modifier_adresseMail_4->text();
     int card=ui->num_8->text().toInt();
-    Client c(res,num_tel,nom, prenom, adresse_mail,card);
+    Client c(res,num_tel,nom, prenom, adresse_mail);
     bool test=c.modifier();
     if(test)
     {
@@ -144,7 +143,6 @@ void MainWindow::on_modifierClient_4_clicked()
     }
 
 }
-
 
 //Metiers
 
@@ -193,7 +191,7 @@ void MainWindow::on_pdf_6_clicked()
 
 }
 
-
+/*
 void MainWindow::on_plus_clicked()
 {
     QString nom=ui->recherche_5->text();
@@ -202,7 +200,7 @@ void MainWindow::on_plus_clicked()
     int num_tel=num_tel;
     int card=card;
     QString adresse_mail=adresse_mail;
-    Client c(res,num_tel,nom, prenom, adresse_mail,card);
+    Client c(res,num_tel,nom, prenom, adresse_mail);
     bool test=c.update();
     if(test)
     {
@@ -223,3 +221,4 @@ void MainWindow::on_tricard_clicked()
 }
 
 
+*/

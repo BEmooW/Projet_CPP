@@ -1,13 +1,13 @@
 #include "client.h"
 
-Client::Client(int cin, int num, QString nom, QString prenom, QString mail, int card)
+Client::Client(int cin, int num, QString nom, QString prenom, QString mail)
 {
     this->cin=cin;
     this->num=num;
     this->nom=nom;
     this->prenom=prenom;
     this->mail=mail;
-    this->card=0;
+    //this->card=0;
 
     ;
 
@@ -18,12 +18,13 @@ bool Client::ajouter()
     QSqlQuery query;
     QString res = QString::number(cin);
 
-    query.prepare("insert into client(nom,prenom,cin,num,mail,card)" "values(:nom,:prenom,:cin,:num,:mail,:card)");
+    query.prepare("insert into client(nom,prenom,cin,num,mail)" "values(:nom,:prenom,:cin,:num,:mail)");
     query.bindValue(":nom",nom);
     query.bindValue(":prenom",prenom);
     query.bindValue(":cin",res);
     query.bindValue(":num",num);
     query.bindValue(":mail",mail);
+
     return query.exec();
 }
 
@@ -86,9 +87,9 @@ QSqlQueryModel * Client::triNom()
     QSqlQueryModel * model= new QSqlQueryModel();
 
     model->setQuery("select * from client order by nom");
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("Nom"));
-    model->setHeaderData(1,Qt::Horizontal,QObject::tr("Prenom"));
-    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Cin"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("Cin"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("Nom"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Prenom"));
     model->setHeaderData(3,Qt::Horizontal,QObject::tr("num"));
     model->setHeaderData(4,Qt::Horizontal,QObject::tr("Adresse mail"));
 
@@ -96,7 +97,7 @@ QSqlQueryModel * Client::triNom()
 }
 
 
-
+/*
 bool Client::update()
 {
     QSqlQuery query;
@@ -129,7 +130,7 @@ QSqlQueryModel * Client::plus2()
     model->setQuery("select * from client order by card");
     return model;
 }
-
+*/
 
 
 
